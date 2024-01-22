@@ -1,0 +1,43 @@
+version: '3.8'
+
+volumes:
+  pgdata:
+
+services:
+  postgres:
+    container_name: ws-postgres
+    image: postgres:14.7
+    restart: on-failure
+    env_file:
+      - .env.${NODE_ENV}
+    ports:
+      - '${POSTGRES_PORT}:${POSTGRES_PORT}'
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+      POSTGRES_DB: ws
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    container_name: ws-app
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env.${NODE_ENV}
+    volumes:
+      - /base/node_modules
+      - ./:/base
+    ports:
+      - '${APP_PORT}:${APP_PORT}'
+    depends_on:
+      - postgres
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
