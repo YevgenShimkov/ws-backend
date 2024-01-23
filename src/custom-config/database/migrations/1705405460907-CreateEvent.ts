@@ -11,8 +11,8 @@ import {
   StatusEventEnum,
 } from '@src/event/enums/event.unums';
 
-export class CreateEvent1705405474907 implements MigrationInterface {
-  private readonly tableName = 'ws-event';
+export class CreateEvent1705405460907 implements MigrationInterface {
+  private readonly tableName = 'ws_event';
 
   private readonly columns: TableColumnOptions[] = [
     {

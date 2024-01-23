@@ -16,7 +16,6 @@ export class ConnectionConfigService {
     this.dbConnectionOptions = {
       type: 'postgres',
       url: configService.get<string>('POSTGRES_URL'),
-      // autoLoadEntities: true,
       entities: [User, Log, Event, Profile],
       // entities: [__dirname + '/src/**/entities/*.entity{.js, .ts}'],
       migrations: Object.values(dbMigrations),

@@ -10,7 +10,7 @@ export class Log extends BaseDateEntity {
   })
   message: string;
 
-  @ManyToOne(() => Event, (event: Event) => event.id)
+  @ManyToOne(() => Event, (event) => event.id)
   @JoinColumn({ name: 'event_id' })
   event: Event;
 }

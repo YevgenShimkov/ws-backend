@@ -7,6 +7,7 @@ import { CustomConfigModule } from '@src/custom-config/custom-config.module';
 import { EventModule } from './event/event.module';
 import { LogModule } from './log/log.module';
 import { ProfileModule } from './profile/profile.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ProfileModule } from './profile/profile.module';
     EventModule,
     LogModule,
     ProfileModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 export class CreateLog1705405466487 implements MigrationInterface {
-  private readonly tableName: 'ws_log';
+  private readonly tableName = 'ws_log';
 
   private readonly columns: TableColumnOptions[] = [
     {

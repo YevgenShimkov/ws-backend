@@ -32,7 +32,7 @@ export class Event extends BaseDateEntity {
   @Column({ name: 'sender_provider', enum: SenderProviderEventEnum })
   sender_provider: SenderProviderEventEnum;
 
-  @OneToMany(() => Log, (log) => log.event, { onDelete: 'CASCADE' })
+  @OneToMany(() => Log, (log) => log.event)
   logs: Log[];
 
   @ManyToOne(() => User, (user) => user.id)

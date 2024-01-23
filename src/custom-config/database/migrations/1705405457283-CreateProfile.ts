@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 export class CreateProfile1705405457283 implements MigrationInterface {
-  private readonly tableName: 'ws_profile';
+  private readonly tableName = 'ws_profile';
 
   private readonly columns: TableColumnOptions[] = [
     {
@@ -34,8 +34,6 @@ export class CreateProfile1705405457283 implements MigrationInterface {
     {
       name: 'user_id',
       type: 'int4',
-      isNullable: false,
-      isUnique: true,
     },
     {
       name: 'created_at',
